@@ -1,0 +1,10 @@
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\bin\Debug\MovingObjectClient.exe.config
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\bin\Debug\MovingObjectClient.exe
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\bin\Debug\MovingObjectClient.pdb
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\obj\Debug\MovingObjectClient.csprojAssemblyReference.cache
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\obj\Debug\MovingObjectClient.Form1.resources
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\obj\Debug\MovingObjectClient.Properties.Resources.resources
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\obj\Debug\MovingObjectClient.csproj.GenerateResource.cache
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\obj\Debug\MovingObjectClient.csproj.CoreCompileInputs.cache
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\obj\Debug\MovingObjectClient.exe
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObjectClient\obj\Debug\MovingObjectClient.pdb

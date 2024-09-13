@@ -3,64 +3,79 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
-using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace MovingObject
+namespace MovingObjectServer
 {
     static class Program
     {
+        static TcpListener listener;
         static List<TcpClient> clients = new List<TcpClient>();
-        static TcpListener server = null;
+        static bool running = true;
 
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Start TCP Server
-            StartServer();
+            // Start the listener server on a separate thread
+            Thread listenerThread = new Thread(StartServer);
+            listenerThread.Start();
+
             Application.Run(new Form1());
+
+            // Stop the server when the application closes
+            running = false;
+            listener.Stop();
         }
+
         static void StartServer()
         {
-            try
-            {
-                //set the server to listen on a specific port
-                server = new TcpListener(IPAddress.Any, 1000);
-                server.Start();
-                Console.WriteLine("server started...");
+            listener = new TcpListener(IPAddress.Any, 8080);
+            listener.Start();
+            Console.WriteLine("Server started...");
 
-                //start a new thread to handle incoming client connect
-                Thread serverThread = new Thread(() =>
-                {
-                    while (true)
-                    {
-                        TcpClient client = server.AcceptTcpClient();
-                        lock (clients)
-                        {
-                            clients.Add(client);
-                        }
-                        Console.WriteLine("Client connected...");
-                    }
-                });
-                serverThread.IsBackground = true;
-                serverThread.Start();
-            }
-            catch (Exception e)
+            while (running)
             {
-               Console.WriteLine("Error: " + e.Message);
+                try
+                {
+                    TcpClient client = listener.AcceptTcpClient();
+                    lock (clients)
+                    {
+                        clients.Add(client);
+                    }
+
+                    Console.WriteLine("Client connected...");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
             }
-            
+        }
+
+        public static void BroadcastPosition(int x, int y)
+        {
+            byte[] data = BitConverter.GetBytes(x).Concat(BitConverter.GetBytes(y)).ToArray();
+
+            lock (clients)
+            {
+                foreach (var client in clients)
+                {
+                    try
+                    {
+                        client.GetStream().Write(data, 0, data.Length);
+                    }
+                    catch (Exception)
+                    {
+                        // Remove disconnected client
+                        clients.Remove(client);
+                    }
+                }
+            }
         }
     }
 }
-    //Broadcast image method
-    

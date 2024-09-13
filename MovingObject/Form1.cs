@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MovingObject
+namespace MovingObjectServer
 {
     public partial class Form1 : Form
     {
-
         Pen red = new Pen(Color.Red);
         Rectangle rect = new Rectangle(20, 20, 30, 30);
         SolidBrush fillBlue = new SolidBrush(Color.Blue);
-        int slide = 10; 
+        int slide = 10; // Speed of movement
 
         public Form1()
         {
@@ -27,19 +20,22 @@ namespace MovingObject
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            back();
+            MoveRectangle();
 
-            rect.X += slide;
+            // Send the new position to all clients
+            Program.BroadcastPosition(rect.X, rect.Y);
+
             Invalidate();
         }
 
-        private void back()
+        private void MoveRectangle()
         {
             if (rect.X >= this.Width - rect.Width * 2)
                 slide = -10;
-            else
-            if (rect.X <= rect.Width / 2)
+            else if (rect.X <= rect.Width / 2)
                 slide = 10;
+
+            rect.X += slide;
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)

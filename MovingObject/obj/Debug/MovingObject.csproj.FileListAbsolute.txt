@@ -2,9 +2,9 @@ D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\bin
 D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\bin\Debug\MovingObject.exe
 D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\bin\Debug\MovingObject.pdb
 D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\obj\Debug\MovingObject.csprojAssemblyReference.cache
-D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\obj\Debug\MovingObject.Form1.resources
 D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\obj\Debug\MovingObject.Properties.Resources.resources
 D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\obj\Debug\MovingObject.csproj.GenerateResource.cache
 D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\obj\Debug\MovingObject.csproj.CoreCompileInputs.cache
 D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\obj\Debug\MovingObject.exe
 D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\obj\Debug\MovingObject.pdb
+D:\MAHASISWA\kelas3\SocketProgramming\NetworkProgramming-master\MovingObject\obj\Debug\MovingObjectServer.Form1.resources
